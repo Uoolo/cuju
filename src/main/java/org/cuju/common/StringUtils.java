@@ -30,7 +30,7 @@ public class StringUtils {
         if (str != null && str.length() > num) {
             String tips = repeatString(mark, times);
             String reg = "(\\w{"+s+"})\\w*(\\w{"+e+"})";
-            if("true".equals(isChinese)){
+            if(isChinese.length>0 && "true".equals(isChinese[0])){
                 reg = "([\\u4e00-\\u9fa5]{"+s+"})[\\u4e00-\\u9fa5]*([\\u4e00-\\u9fa5]{"+e+"})";
             }
             str = str.replaceAll(reg, "$1"+tips+"$2");
