@@ -3,6 +3,7 @@ package org.cuju.date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -77,6 +78,31 @@ public class DateUtils {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * @Description : 获取指定日期时间
+     * DateUtils
+     * @Return :
+     * @Author : Uoolo
+     * @Date : 2020/5/19 14:09
+    */
+    public static Date getCalendar(int year,int month,int day){
+        Calendar c1 = Calendar.getInstance();
+        c1.set(year,month-1,day,0,0,0);
+        return c1.getTime();
+    }
+
+    /**
+     * @Description : 获取时间字符串
+     * DateUtils
+     * @Return :
+     * @Author : Uoolo
+     * @Date : 2020/5/19 14:22
+    */
+    public static String getDateStr(Date date, String pattern){
+        SimpleDateFormat df = new SimpleDateFormat(pattern);
+        return df.format(date);
     }
 
     public static void main(String[] args) throws ParseException {
