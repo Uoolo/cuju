@@ -1,5 +1,8 @@
 package org.cuju.common;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Author: Uoolo
  * @Description: 字符串处理
@@ -37,4 +40,43 @@ public class StringUtils {
         }
         return str;
     }
+
+    /**
+     * @Description : 根据key获取List<Map>值
+     *
+     * @param mapList,key1,key2,value1
+     * @Return :
+     * @Author : Uoolo
+     * @Date : 2020/9/9 18:41
+    */
+    public static String getMapValueByKey(List<Map<String, Object>> mapList,String key1 ,String key2 ,String value1){
+        String valueResult = "";//你想要取出的某一个key
+        for(Map<String,Object> map : mapList){
+            if(map.get(key1).equals(value1)) {
+                valueResult = (String) map.get(key2);
+            }
+        }
+        return valueResult;
+    }
+
+    /**
+     * @Description : 根据key获取List<Map>值
+     *
+     * @param mapList,key
+     * @Return :
+     * @Author : Uoolo
+     * @Date : 2020/9/9 18:41
+     */
+    public static String getMapValueByKey(List<Map<String, Object>> mapList,String key){
+        String valueResult = "";//你想要取出的某一个key
+        for(Map<String,Object> map : mapList){
+            if(map.containsKey(key)){
+                Object object = map.get(key);
+                valueResult = object.toString();
+            }
+        }
+        return valueResult;
+    }
+
+
 }
