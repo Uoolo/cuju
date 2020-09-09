@@ -3,6 +3,8 @@ package org.cuju.date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -105,11 +107,32 @@ public class DateUtils {
         return df.format(date);
     }
 
-    public static void main(String[] args) throws ParseException {
+    /**
+     * @Description : 日期（yyyy-MM-dd）转LocalDateTime
+     *
+     * @param object
+     * @Return :
+     * @Author : Uoolo
+     * @Date : 2020/9/9 17:20
+    */
+    public static LocalDateTime parseLocalDateTime(Object object){
+        if(object == null)
+            return null;
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return LocalDateTime.parse(object.toString() + " 00:00:00",df);
+    }
 
-        String date="2020-02-29";
-        Integer i=1;
-        System.out.println("获得"+date+"加"+i+"个自然月时间："+addMonth(date,i));
+    /**
+     * @Description : LocalDateTime转字符串时间
+     *
+     * @param localDateTime
+     * @Return :
+     * @Author : Uoolo
+     * @Date : 2020/9/9 17:21
+    */
+    public static String localDateTimeToString(LocalDateTime localDateTime){
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return df.format(localDateTime);
     }
 
 
