@@ -1,5 +1,7 @@
 package org.cuju.common;
 
+import javax.xml.bind.DatatypeConverter;
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
@@ -76,6 +78,36 @@ public class StringUtils {
             }
         }
         return valueResult;
+    }
+
+    /**
+     * @Description : base64转byte[]
+     * JDK版本必须>=1.8
+     * @param base64Str
+     * @Return :
+     * @Author : Uoolo
+     * @Date : 2020/9/14 15:01
+    */
+    public static byte[] base64ToByte(String base64Str){
+        return Base64.getDecoder().decode(base64Str);
+        //DatatypeConverter.printBase64Binary(base64Str);   jdk>=1.6
+        //byte[] byteArray = Base64.decodeBase64(base64Str);    commons-codec.jar
+        //有人对sun、apache-codec、guava等多个Base64库进行了性能测试：sun的性能最差，java.util自带的Base64性能最好，java.util.Base64比sun有着近3倍性能的提升。
+        //功能方面，java.util.Base64还提供了对URL、MIME友好的编码器与解码器。
+    }
+
+    /**
+     * @Description : byte[]转base64
+     *
+     * @param byteArray
+     * @Return :
+     * @Author : Uoolo
+     * @Date : 2020/9/14 15:04
+    */
+    public static String byteToBase64(byte[] byteArray){
+        return Base64.getEncoder().encodeToString(byteArray);
+        //DatatypeConverter.printBase64Binary(byteArray);  jdk>=1.6
+        //String base64Str = Base64.encodeBase64String(byteArray).replaceAll("\r\n","");    commons-codec.jar
     }
 
 
