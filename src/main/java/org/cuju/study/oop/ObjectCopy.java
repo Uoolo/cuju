@@ -7,7 +7,10 @@ package org.cuju.study.oop;
  */
 public class ObjectCopy {
 
+    int a = 120;
     public static void main(String[] args){
+        ObjectCopy objectCopy = new ObjectCopy();
+        System.out.println(objectCopy.a);
         //对象是引用类型的，所以如果你把一个对象赋值给另一个变量，它实zhi际上只是把内存地址赋值了。
 
         People people = new People();
