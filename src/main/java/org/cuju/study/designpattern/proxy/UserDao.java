@@ -8,6 +8,6 @@ package org.cuju.study.designpattern.proxy;
 public class UserDao implements IUserDao {
     @Override
     public void save(){
-        System.out.println("保存数据完成！");
+        System.out.println("保存数据完成！ff");
     }
 }
