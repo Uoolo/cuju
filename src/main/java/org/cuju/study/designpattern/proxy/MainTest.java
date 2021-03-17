@@ -8,9 +8,11 @@ package org.cuju.study.designpattern.proxy;
 public class MainTest {
     public static void main(String[] args) {
         //静态代理
-        UserDaoProxy userDaoProxy = new UserDaoProxy(new UserDao());
-        userDaoProxy.save();
+        //UserDaoProxy userDaoProxy = new UserDaoProxy(new UserDao());
+        //userDaoProxy.save();
 
-
+        //JDK动态代理
+        IUserDao proxy = (IUserDao) new ProxyFactory(new UserDao()).getProxyInstance();
+        proxy.save();
     }
 }
