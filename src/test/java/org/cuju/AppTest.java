@@ -7,6 +7,8 @@ import org.cuju.date.DateUtils;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Unit test for simple App.
@@ -29,5 +31,9 @@ public class AppTest
         assertEquals(dateStr,"2020-05-20 00:00:00");
     }
 
+    @Test
+    public void testListUtils(){
+
+    }
 
 }
